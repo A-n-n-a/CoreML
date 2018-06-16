@@ -14,18 +14,19 @@
 		95E99E7120D53E5C00F03AC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E99E6F20D53E5B00F03AC9 /* ViewController.swift */; };
 		95E99E7220D53E5C00F03AC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E99E7020D53E5C00F03AC9 /* AppDelegate.swift */; };
 		95E99E7520D53E6600F03AC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E99E7320D53E6600F03AC9 /* Main.storyboard */; };
+		95E99E7820D54A3300F03AC9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95E99E7720D54A3300F03AC9 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		95E99E5620D53DB900F03AC9 /* PicRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E99E6020D53DBC00F03AC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95E99E6320D53DBC00F03AC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		95E99E6520D53DBD00F03AC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95E99E6B20D53E2500F03AC9 /* ImageToPixelBufferConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageToPixelBufferConverter.swift; sourceTree = "<group>"; };
 		95E99E6D20D53E3000F03AC9 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 		95E99E6F20D53E5B00F03AC9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		95E99E7020D53E5C00F03AC9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95E99E7420D53E6600F03AC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		95E99E7720D54A3300F03AC9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 		95E99E5820D53DB900F03AC9 /* PicRecognition */ = {
 			isa = PBXGroup;
 			children = (
+				95E99E7720D54A3300F03AC9 /* Info.plist */,
 				95E99E7320D53E6600F03AC9 /* Main.storyboard */,
 				95E99E7020D53E5C00F03AC9 /* AppDelegate.swift */,
 				95E99E6F20D53E5B00F03AC9 /* ViewController.swift */,
@@ -65,7 +67,6 @@
 				95E99E6B20D53E2500F03AC9 /* ImageToPixelBufferConverter.swift */,
 				95E99E6020D53DBC00F03AC9 /* Assets.xcassets */,
 				95E99E6220D53DBC00F03AC9 /* LaunchScreen.storyboard */,
-				95E99E6520D53DBD00F03AC9 /* Info.plist */,
 			);
 			path = PicRecognition;
 			sourceTree = "<group>";
@@ -128,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E99E7820D54A3300F03AC9 /* Info.plist in Resources */,
 				95E99E7520D53E6600F03AC9 /* Main.storyboard in Resources */,
 				95E99E6420D53DBC00F03AC9 /* LaunchScreen.storyboard in Resources */,
 				95E99E6120D53DBC00F03AC9 /* Assets.xcassets in Resources */,
