@@ -26,11 +26,24 @@ class ViewController: UIViewController {
     }
 
     @IBAction func openGallery(_ sender: UIButton) {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = .camera
-        picker.allowsEditing = false
-        present(picker, animated: true, completion: nil)
+        if !UIImagePickerController.isSourceTypeAvailable(.camera){
+            
+            let alertController = UIAlertController.init(title: nil, message: "Device has no camera", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction.init(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in
+            })
+            
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+        else{
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = .camera
+            picker.allowsEditing = false
+            present(picker, animated: true, completion: nil)
+        }
     }
     
 }
