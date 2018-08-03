@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95A40E6E2113813100948847 /* PicRecognition.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95A40E6C2113813100948847 /* PicRecognition.xcdatamodeld */; };
 		95E99E6120D53DBC00F03AC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95E99E6020D53DBC00F03AC9 /* Assets.xcassets */; };
 		95E99E6420D53DBC00F03AC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E99E6220D53DBC00F03AC9 /* LaunchScreen.storyboard */; };
 		95E99E6C20D53E2600F03AC9 /* ImageToPixelBufferConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E99E6B20D53E2500F03AC9 /* ImageToPixelBufferConverter.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		95A40E6D2113813100948847 /* Temp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Temp.xcdatamodel; sourceTree = "<group>"; };
 		95E99E5620D53DB900F03AC9 /* PicRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E99E6020D53DBC00F03AC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95E99E6320D53DBC00F03AC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 		95E99E5820D53DB900F03AC9 /* PicRecognition */ = {
 			isa = PBXGroup;
 			children = (
+				95A40E6C2113813100948847 /* PicRecognition.xcdatamodeld */,
 				95E99E7720D54A3300F03AC9 /* Info.plist */,
 				95E99E7320D53E6600F03AC9 /* Main.storyboard */,
 				95E99E7020D53E5C00F03AC9 /* AppDelegate.swift */,
@@ -147,6 +150,7 @@
 				95E99E7120D53E5C00F03AC9 /* ViewController.swift in Sources */,
 				95E99E6E20D53E3000F03AC9 /* MobileNet.mlmodel in Sources */,
 				95E99E6C20D53E2600F03AC9 /* ImageToPixelBufferConverter.swift in Sources */,
+				95A40E6E2113813100948847 /* PicRecognition.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +301,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = uk.co.onefreelance.customwritings;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.onefreelance.customwritings1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -315,7 +319,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = uk.co.onefreelance.customwritings;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.onefreelance.customwritings1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -344,6 +348,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		95A40E6C2113813100948847 /* PicRecognition.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				95A40E6D2113813100948847 /* Temp.xcdatamodel */,
+			);
+			currentVersion = 95A40E6D2113813100948847 /* Temp.xcdatamodel */;
+			path = PicRecognition.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 95E99E4E20D53DB900F03AC9 /* Project object */;
 }

@@ -8,12 +8,14 @@
 
 import UIKit
 import CoreML
+import CoreData
 
 class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var outputLabel: UILabel!
     
     let mobileNet = MobileNet()
+    var records: [NSManagedObject] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,70 @@ class ViewController: UIViewController {
         }
     }
     
+    func cashRecord(title: String) {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Record", in: managedContext)!
+        let record = NSManagedObject(entity: entity, insertInto: managedContext)
+        record.setValue(title, forKeyPath: "title")
+        
+        do {
+            try managedContext.save()
+            records.append(record)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func fetchRecord() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Record")
+        
+        do {
+            records = try managedContext.fetch(fetchRequest)
+            print(records)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func saveImageData(_ data: Data, title: String) {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Record", in: managedContext)!
+        let record = NSManagedObject(entity: entity, insertInto: managedContext)
+        record.setValue(data, forKeyPath: "imageData")
+        record.setValue(title, forKeyPath: "title")
+        
+        
+        do {
+            try managedContext.save()
+            records.append(record)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+//    func fetchImageData() {
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//        let managedContext = appDelegate.persistentContainer.viewContext
+//        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Record")
+//        
+//        do {
+//            records = try managedContext.fetch(fetchRequest)
+//            print(records)
+//        } catch let error as NSError {
+//            print("Could not fetch. \(error), \(error.userInfo)")
+//        }
+//    }
+    
+    func getImageData(image: UIImage) -> Data? {
+        let imageData = UIImagePNGRepresentation(image)
+        return imageData
+    }
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -56,8 +122,16 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imageView.image = image
+            
             if let prediction = recognize(image: image) {
                 outputLabel.text = prediction
+                if let imageData = getImageData(image: image) {
+                    saveImageData(imageData, title: prediction)
+                }
+                //cashRecord(title: prediction)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    self.fetchRecord()
+                }
             } else {
                 outputLabel.text = "Could not recognize the image"
             }
