@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		95A40E6E2113813100948847 /* PicRecognition.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95A40E6C2113813100948847 /* PicRecognition.xcdatamodeld */; };
+		95A40E7021156CCA00948847 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A40E6F21156CCA00948847 /* HistoryViewController.swift */; };
+		95A40E7221156DDE00948847 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A40E7121156DDE00948847 /* HistoryCell.swift */; };
+		95A40E7621156F3700948847 /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A40E7521156F3700948847 /* HistoryRecord.swift */; };
 		95E99E6120D53DBC00F03AC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95E99E6020D53DBC00F03AC9 /* Assets.xcassets */; };
 		95E99E6420D53DBC00F03AC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E99E6220D53DBC00F03AC9 /* LaunchScreen.storyboard */; };
 		95E99E6C20D53E2600F03AC9 /* ImageToPixelBufferConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E99E6B20D53E2500F03AC9 /* ImageToPixelBufferConverter.swift */; };
 		95E99E6E20D53E3000F03AC9 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 95E99E6D20D53E3000F03AC9 /* MobileNet.mlmodel */; };
-		95E99E7120D53E5C00F03AC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E99E6F20D53E5B00F03AC9 /* ViewController.swift */; };
+		95E99E7120D53E5C00F03AC9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E99E6F20D53E5B00F03AC9 /* MainViewController.swift */; };
 		95E99E7220D53E5C00F03AC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E99E7020D53E5C00F03AC9 /* AppDelegate.swift */; };
 		95E99E7520D53E6600F03AC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E99E7320D53E6600F03AC9 /* Main.storyboard */; };
 		95E99E7820D54A3300F03AC9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95E99E7720D54A3300F03AC9 /* Info.plist */; };
@@ -20,12 +23,15 @@
 
 /* Begin PBXFileReference section */
 		95A40E6D2113813100948847 /* Temp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Temp.xcdatamodel; sourceTree = "<group>"; };
+		95A40E6F21156CCA00948847 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		95A40E7121156DDE00948847 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		95A40E7521156F3700948847 /* HistoryRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecord.swift; sourceTree = "<group>"; };
 		95E99E5620D53DB900F03AC9 /* PicRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E99E6020D53DBC00F03AC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95E99E6320D53DBC00F03AC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95E99E6B20D53E2500F03AC9 /* ImageToPixelBufferConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageToPixelBufferConverter.swift; sourceTree = "<group>"; };
 		95E99E6D20D53E3000F03AC9 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
-		95E99E6F20D53E5B00F03AC9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		95E99E6F20D53E5B00F03AC9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		95E99E7020D53E5C00F03AC9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95E99E7420D53E6600F03AC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95E99E7720D54A3300F03AC9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,15 +67,18 @@
 		95E99E5820D53DB900F03AC9 /* PicRecognition */ = {
 			isa = PBXGroup;
 			children = (
-				95A40E6C2113813100948847 /* PicRecognition.xcdatamodeld */,
 				95E99E7720D54A3300F03AC9 /* Info.plist */,
+				95E99E6220D53DBC00F03AC9 /* LaunchScreen.storyboard */,
 				95E99E7320D53E6600F03AC9 /* Main.storyboard */,
 				95E99E7020D53E5C00F03AC9 /* AppDelegate.swift */,
-				95E99E6F20D53E5B00F03AC9 /* ViewController.swift */,
-				95E99E6D20D53E3000F03AC9 /* MobileNet.mlmodel */,
+				95E99E6F20D53E5B00F03AC9 /* MainViewController.swift */,
+				95A40E6F21156CCA00948847 /* HistoryViewController.swift */,
+				95A40E7121156DDE00948847 /* HistoryCell.swift */,
+				95A40E7521156F3700948847 /* HistoryRecord.swift */,
 				95E99E6B20D53E2500F03AC9 /* ImageToPixelBufferConverter.swift */,
+				95E99E6D20D53E3000F03AC9 /* MobileNet.mlmodel */,
+				95A40E6C2113813100948847 /* PicRecognition.xcdatamodeld */,
 				95E99E6020D53DBC00F03AC9 /* Assets.xcassets */,
-				95E99E6220D53DBC00F03AC9 /* LaunchScreen.storyboard */,
 			);
 			path = PicRecognition;
 			sourceTree = "<group>";
@@ -147,8 +156,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				95E99E7220D53E5C00F03AC9 /* AppDelegate.swift in Sources */,
-				95E99E7120D53E5C00F03AC9 /* ViewController.swift in Sources */,
+				95A40E7221156DDE00948847 /* HistoryCell.swift in Sources */,
+				95A40E7621156F3700948847 /* HistoryRecord.swift in Sources */,
+				95E99E7120D53E5C00F03AC9 /* MainViewController.swift in Sources */,
 				95E99E6E20D53E3000F03AC9 /* MobileNet.mlmodel in Sources */,
+				95A40E7021156CCA00948847 /* HistoryViewController.swift in Sources */,
 				95E99E6C20D53E2600F03AC9 /* ImageToPixelBufferConverter.swift in Sources */,
 				95A40E6E2113813100948847 /* PicRecognition.xcdatamodeld in Sources */,
 			);
