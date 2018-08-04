@@ -10,7 +10,7 @@ import UIKit
 import CoreML
 import CoreData
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var outputLabel: UILabel!
     
@@ -114,7 +114,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension MainViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
