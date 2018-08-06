@@ -119,10 +119,23 @@
                                     <outlet property="delegate" destination="DEN-5x-FEt" id="rE3-7N-sA4"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Vzg-WG-DfJ">
+                                <rect key="frame" x="162.5" y="308" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="S99-ak-wMm"/>
+                                    <constraint firstAttribute="height" constant="50" id="U6V-1u-lRG"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.cornerRadius" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QH5-6q-FRd" firstAttribute="top" secondItem="5XQ-Bh-aOW" secondAttribute="top" id="8du-yd-i8R"/>
+                            <constraint firstItem="Vzg-WG-DfJ" firstAttribute="centerX" secondItem="5XQ-Bh-aOW" secondAttribute="centerX" id="VYA-We-jNu"/>
+                            <constraint firstItem="Vzg-WG-DfJ" firstAttribute="centerY" secondItem="5XQ-Bh-aOW" secondAttribute="centerY" id="XLv-MG-JWj"/>
                             <constraint firstItem="QH5-6q-FRd" firstAttribute="bottom" secondItem="Rhy-jw-oIC" secondAttribute="bottom" id="ead-ta-ZOk"/>
                             <constraint firstItem="QH5-6q-FRd" firstAttribute="leading" secondItem="Rhy-jw-oIC" secondAttribute="leading" id="jut-sp-BX4"/>
                             <constraint firstItem="QH5-6q-FRd" firstAttribute="trailing" secondItem="Rhy-jw-oIC" secondAttribute="trailing" id="pwi-DB-Yvd"/>
@@ -130,6 +143,7 @@
                         <viewLayoutGuide key="safeArea" id="Rhy-jw-oIC"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="Vzg-WG-DfJ" id="S7C-cm-E4P"/>
                         <outlet property="tableView" destination="QH5-6q-FRd" id="Odj-pY-fIa"/>
                     </connections>
                 </viewController>

@@ -12,31 +12,31 @@ import CoreData
 class HistoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var records: [NSManagedObject] = []
-    var historyRrecords: [HistoryRecord] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        fetchRecord()
+        
     }
     
-    func fetchRecord() {
+    override func viewDidAppear(_ animated: Bool) {
+        fetchRecords()
+
+    }
+    
+    func fetchRecords() {
+        activityIndicator.startAnimating()
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Record")
-        
         do {
-            records = try managedContext.fetch(fetchRequest)
-            print(records)
-            for record in records {
-                if let historyRecord = Record.mapRecord(managedObject: record) {
-                    historyRrecords.append(historyRecord)
-                }
-            }
+            self.records = try managedContext.fetch(fetchRequest)
+            activityIndicator.stopAnimating()
             self.tableView.reloadData()
         } catch let error as NSError {
+            activityIndicator.stopAnimating()
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
@@ -46,16 +46,14 @@ class HistoryViewController: UIViewController {
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return historyRrecords.count
+        return records.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell") as! HistoryCell
-        cell.record = historyRrecords[indexPath.row]
+        let record = records[indexPath.row]
+        cell.record = record
         return cell
     }
-    
-    
-    
-    
 }
+

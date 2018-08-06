@@ -7,20 +7,23 @@
 //
 
 import UIKit
+import CoreData
 
 class HistoryCell: UITableViewCell {
 
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var title: UILabel!
     
-    var record: HistoryRecord! {
+    var record: NSManagedObject! {
         didSet {
             setUpCell()
         }
     }
     
     func setUpCell() {
-        picture.image = record.picture
-        title.text = record.title
+        if let record = record, let data = record.value(forKey: "imageData") as? Data {
+            picture.image = UIImage(data: data)
+            title.text = record.value(forKey: "title") as? String
+        }
     }
 }
