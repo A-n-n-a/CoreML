@@ -19,6 +19,10 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.register(UINib(nibName: "HistoryCell", bundle: Bundle.main), forCellReuseIdentifier: "HistoryCell")
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"background")!)
+        self.tableView.backgroundColor = UIColor.clear
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,20 +44,64 @@ class HistoryViewController: UIViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
+    
+    func resetAllRecords() {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        do
+        {
+            try managedContext.execute(deleteRequest)
+            try managedContext.save()
+        }
+        catch {
+            print ("There was an error")
+        }
+    }
 
 }
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return records.count
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell") as! HistoryCell
-        let record = records[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as! HistoryCell
+        let record = records[indexPath.section]
         cell.record = record
+        cell.backgroundColor = UIColor.clear
         return cell
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+            let managedContext = appDelegate.persistentContainer.viewContext
+            managedContext.delete(records[indexPath.row])
+            records.remove(at: indexPath.row)
+            do {
+                try managedContext.save()
+            } catch {
+                print("error")
+            }
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        default:
+            return
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140
     }
 }
 

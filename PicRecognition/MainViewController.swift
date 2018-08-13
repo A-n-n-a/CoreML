@@ -19,7 +19,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"background")!)
     }
 
     func recognize(image: UIImage) -> String? {
