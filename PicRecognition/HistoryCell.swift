@@ -14,6 +14,8 @@ class HistoryCell: UITableViewCell {
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var title: UILabel!
     
+    fileprivate let languageID = Bundle.main.preferredLocalizations.first
+    
     var record: NSManagedObject! {
         didSet {
             setUpCell()
@@ -21,9 +23,22 @@ class HistoryCell: UITableViewCell {
     }
     
     func setUpCell() {
-        if let record = record, let data = record.value(forKey: "imageData") as? Data {
+        
+        if let record = record, let data = record.value(forKey: "imageData") as? Data, let text = record.value(forKey: "title") as? String {
             picture.image = UIImage(data: data)
-            title.text = record.value(forKey: "title") as? String
+            self.title.text = text
+            //title.text = record.value(forKey: "title") as? String
+//            let params = ROGoogleTranslateParams(source: "en",
+//                                                 target: "ru",
+//                                                 text:   text)
+//
+//            let translator = ROGoogleTranslate()
+//
+//            translator.translate(params: params) { (result) in
+//                DispatchQueue.main.async {
+//                    self.title.text = result
+//                }
+//            }
         }
     }
 }

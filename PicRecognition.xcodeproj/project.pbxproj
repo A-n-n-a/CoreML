@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9502FF502121BDAA00A16E03 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9502FF4E2121BDAA00A16E03 /* HistoryCell.xib */; };
+		952E595F21236D6A004C8AFB /* ROGoogleTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952E595E21236D6A004C8AFB /* ROGoogleTranslate.swift */; };
 		95A40E6E2113813100948847 /* PicRecognition.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95A40E6C2113813100948847 /* PicRecognition.xcdatamodeld */; };
 		95A40E7021156CCA00948847 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A40E6F21156CCA00948847 /* HistoryViewController.swift */; };
 		95A40E7221156DDE00948847 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A40E7121156DDE00948847 /* HistoryCell.swift */; };
@@ -19,10 +20,15 @@
 		95E99E7220D53E5C00F03AC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E99E7020D53E5C00F03AC9 /* AppDelegate.swift */; };
 		95E99E7520D53E6600F03AC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E99E7320D53E6600F03AC9 /* Main.storyboard */; };
 		95E99E7820D54A3300F03AC9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95E99E7720D54A3300F03AC9 /* Info.plist */; };
+		CB1336EAAA0A3D45133D1239 /* Pods_PicRecognition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 572334A635717C4CB4EE366C /* Pods_PicRecognition.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		572334A635717C4CB4EE366C /* Pods_PicRecognition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicRecognition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CD18E9BEA5704B1F081969A /* Pods-PicRecognition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicRecognition.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicRecognition/Pods-PicRecognition.debug.xcconfig"; sourceTree = "<group>"; };
+		837A477C1B7041C5A2061C3F /* Pods-PicRecognition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicRecognition.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicRecognition/Pods-PicRecognition.release.xcconfig"; sourceTree = "<group>"; };
 		9502FF4E2121BDAA00A16E03 /* HistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
+		952E595E21236D6A004C8AFB /* ROGoogleTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ROGoogleTranslate.swift; path = Pods/ROGoogleTranslate/Source/ROGoogleTranslate.swift; sourceTree = "<group>"; };
 		95A40E6D2113813100948847 /* Temp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Temp.xcdatamodel; sourceTree = "<group>"; };
 		95A40E6F21156CCA00948847 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		95A40E7121156DDE00948847 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
@@ -42,17 +48,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB1336EAAA0A3D45133D1239 /* Pods_PicRecognition.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63F5DB268D4C0AB3FBC57573 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				572334A635717C4CB4EE366C /* Pods_PicRecognition.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		691DDC7FD29C80C284183219 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5CD18E9BEA5704B1F081969A /* Pods-PicRecognition.debug.xcconfig */,
+				837A477C1B7041C5A2061C3F /* Pods-PicRecognition.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		95E99E4D20D53DB900F03AC9 = {
 			isa = PBXGroup;
 			children = (
+				952E595E21236D6A004C8AFB /* ROGoogleTranslate.swift */,
 				95E99E5820D53DB900F03AC9 /* PicRecognition */,
 				95E99E5720D53DB900F03AC9 /* Products */,
+				691DDC7FD29C80C284183219 /* Pods */,
+				63F5DB268D4C0AB3FBC57573 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,9 +117,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95E99E6820D53DBD00F03AC9 /* Build configuration list for PBXNativeTarget "PicRecognition" */;
 			buildPhases = (
+				3C9D4FCEFED3A07B8A6CC301 /* [CP] Check Pods Manifest.lock */,
 				95E99E5220D53DB900F03AC9 /* Sources */,
 				95E99E5320D53DB900F03AC9 /* Frameworks */,
 				95E99E5420D53DB900F03AC9 /* Resources */,
+				11ACB4952EB8DBDDA3ED4F5B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,11 +180,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		11ACB4952EB8DBDDA3ED4F5B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PicRecognition/Pods-PicRecognition-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ROGoogleTranslate/ROGoogleTranslate.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ROGoogleTranslate.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PicRecognition/Pods-PicRecognition-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C9D4FCEFED3A07B8A6CC301 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PicRecognition-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		95E99E5220D53DB900F03AC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				952E595F21236D6A004C8AFB /* ROGoogleTranslate.swift in Sources */,
 				95E99E7220D53E5C00F03AC9 /* AppDelegate.swift in Sources */,
 				95A40E7221156DDE00948847 /* HistoryCell.swift in Sources */,
 				95E99E7120D53E5C00F03AC9 /* MainViewController.swift in Sources */,
@@ -304,6 +373,7 @@
 		};
 		95E99E6920D53DBD00F03AC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CD18E9BEA5704B1F081969A /* Pods-PicRecognition.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -322,6 +392,7 @@
 		};
 		95E99E6A20D53DBD00F03AC9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 837A477C1B7041C5A2061C3F /* Pods-PicRecognition.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

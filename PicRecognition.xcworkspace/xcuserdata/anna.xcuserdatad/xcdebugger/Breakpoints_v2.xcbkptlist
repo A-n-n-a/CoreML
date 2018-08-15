@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/ROGoogleTranslate/Source/ROGoogleTranslate.swift"
+            timestampString = "556010349.094943"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "translate(params:callback:errorHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PicRecognition.ROGoogleTranslate.translate(params: PicRecognition.ROGoogleTranslateParams, callback: (Swift.String) -&gt; (), errorHandler: Swift.Optional&lt;(__ObjC.NSError) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PicRecognition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anna/Desktop/PicRecognition/Pods/ROGoogleTranslate/Source/ROGoogleTranslate.swift"
+                  timestampString = "556010349.1146719"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "3260">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ROGoogleTranslate.ROGoogleTranslate.translate(params: ROGoogleTranslate.ROGoogleTranslateParams, callback: (Swift.String) -&gt; (), errorHandler: Swift.Optional&lt;(__ObjC.NSError) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "ROGoogleTranslate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anna/Desktop/PicRecognition/Pods/ROGoogleTranslate/Source/ROGoogleTranslate.swift"
+                  timestampString = "556010349.390475"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "3260">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/ROGoogleTranslate/Source/ROGoogleTranslate.swift"
+            timestampString = "556010349.095035"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "translate(params:callback:errorHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PicRecognition.ROGoogleTranslate.translate(params: PicRecognition.ROGoogleTranslateParams, callback: (Swift.String) -&gt; (), errorHandler: Swift.Optional&lt;(__ObjC.NSError) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PicRecognition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anna/Desktop/PicRecognition/Pods/ROGoogleTranslate/Source/ROGoogleTranslate.swift"
+                  timestampString = "556010349.1807131"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "3868">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ROGoogleTranslate.ROGoogleTranslate.translate(params: ROGoogleTranslate.ROGoogleTranslateParams, callback: (Swift.String) -&gt; (), errorHandler: Swift.Optional&lt;(__ObjC.NSError) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "ROGoogleTranslate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anna/Desktop/PicRecognition/Pods/ROGoogleTranslate/Source/ROGoogleTranslate.swift"
+                  timestampString = "556010349.397114"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "3868">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PicRecognition/MainViewController.swift"
+            timestampString = "556010349.095153"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PicRecognition/MainViewController.swift"
+            timestampString = "556010349.095824"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

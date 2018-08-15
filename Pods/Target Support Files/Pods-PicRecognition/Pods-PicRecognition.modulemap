@@ -1,0 +1,6 @@
+framework module Pods_PicRecognition {
+  umbrella header "Pods-PicRecognition-umbrella.h"
+
+  export *
+  module * { export * }
+}

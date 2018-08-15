@@ -14,7 +14,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="PicRecognition" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="BYZ-38-t0r" customClass="MainViewController" customModule="PicRecognition" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,7 +32,8 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAE-NE-uIv">
-                                <rect key="frame" x="30" y="489" width="315" height="78"/>
+                                <rect key="frame" x="30" y="489" width="315" height="0.0"/>
+                                <color key="backgroundColor" red="0.89920651910000005" green="0.29681986570000002" blue="0.23384386300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -54,7 +55,6 @@
                             <constraint firstItem="bAE-NE-uIv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="TCR-aI-Jei"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L0e-qJ-yoi" secondAttribute="trailing" constant="50" id="cbP-LR-Evq"/>
                             <constraint firstItem="L0e-qJ-yoi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="oSS-Zx-oWl"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bAE-NE-uIv" secondAttribute="bottom" constant="100" id="r6t-yq-d9K"/>
                             <constraint firstItem="m9X-IZ-X1i" firstAttribute="width" secondItem="L0e-qJ-yoi" secondAttribute="width" id="sP7-ev-QCP"/>
                             <constraint firstItem="m9X-IZ-X1i" firstAttribute="centerY" secondItem="L0e-qJ-yoi" secondAttribute="centerY" id="swl-ap-hAS"/>
                         </constraints>

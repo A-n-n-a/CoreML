@@ -23,6 +23,7 @@ class HistoryViewController: UIViewController {
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named:"background")!)
         self.tableView.backgroundColor = UIColor.clear
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -81,19 +82,30 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = UIColor.clear
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let record = records[indexPath.section]
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Main") as? MainViewController {
+            vc.record = record
+            self.show(vc, sender: self)
+        }
+        
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
             let managedContext = appDelegate.persistentContainer.viewContext
-            managedContext.delete(records[indexPath.row])
-            records.remove(at: indexPath.row)
+            managedContext.delete(records[indexPath.section])
+            records.remove(at: indexPath.section)
             do {
                 try managedContext.save()
             } catch {
                 print("error")
             }
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            let indexSet = IndexSet(arrayLiteral: indexPath.section)
+            self.tableView.deleteSections(indexSet, with: .left) //deleteRows(at: [indexPath], with: .fade)
         default:
             return
             

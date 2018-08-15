@@ -16,10 +16,19 @@ class MainViewController: UIViewController {
     
     let mobileNet = MobileNet()
     var records: [NSManagedObject] = []
+    var record: NSManagedObject?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named:"background")!)
+        
+        let languageID = Bundle.main.preferredLocalizations.first
+        outputLabel.text = languageID
+        
+        if let record = record, let imageData = record.value(forKey: "imageData") as? Data, let text = record.value(forKey: "title") as? String {
+            self.imageView.image =  UIImage(data: imageData)
+            self.outputLabel.text = text
+        }
     }
 
     func recognize(image: UIImage) -> String? {
@@ -124,7 +133,23 @@ extension MainViewController: UIImagePickerControllerDelegate, UINavigationContr
             self.imageView.image = image
             
             if let prediction = recognize(image: image) {
-                outputLabel.text = prediction
+                
+                let params = ROGoogleTranslateParams(source: "en",
+                                                     target: "ru",
+                                                     text:   prediction)
+
+                let translator = ROGoogleTranslate()
+
+                translator.translate(params: params, callback: { (result) in
+                    print(result)
+                    DispatchQueue.main.async {
+                        self.outputLabel.text = result
+                    }
+                }, errorHandler: { error in
+                    print(error)
+                    self.outputLabel.text = prediction
+                })
+//                outputLabel.text = prediction
                 if let imageData = getImageData(image: image) {
                     saveImageData(imageData, title: prediction)
                 }

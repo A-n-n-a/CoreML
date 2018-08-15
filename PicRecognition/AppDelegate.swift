@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+let GOOGLE_API_KEY = "AIzaSyDHKDYdpGEN7Q0pZXLepVO7RH3ceZahYmA"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
