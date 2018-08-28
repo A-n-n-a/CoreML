@@ -15,20 +15,28 @@ class MainViewController: UIViewController {
     @IBOutlet weak var outputLabel: UILabel!
     
     let mobileNet = MobileNet()
-    var records: [NSManagedObject] = []
-    var record: NSManagedObject?
+//    var records = [Record]()
+    var record: Record?
+    var addButton: AddButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named:"background")!)
         
-        let languageID = Bundle.main.preferredLocalizations.first
-        outputLabel.text = languageID
-        
-        if let record = record, let imageData = record.value(forKey: "imageData") as? Data, let text = record.value(forKey: "title") as? String {
-            self.imageView.image =  UIImage(data: imageData)
-            self.outputLabel.text = text
+        if let record = record, let image = record.image {
+            self.imageView.image =  image
+            self.outputLabel.text = record.title
         }
+        
+        setUpAddButton()
+    }
+    
+    func setUpAddButton() {
+        addButton = AddButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+//        let imageOffset = (UIScreen.main.bounds.width - 275) / 2
+        addButton.center = CGPoint(x: UIScreen.main.bounds.width - 50, y: imageView.frame.minY)
+        addButton.addTarget(self, action: #selector(openGallery), for: .touchUpInside)
+        self.view.addSubview(addButton)
     }
 
     func recognize(image: UIImage) -> String? {
@@ -36,7 +44,7 @@ class MainViewController: UIViewController {
         return prediction.classLabel
     }
 
-    @IBAction func openGallery(_ sender: UIButton) {
+    @objc func openGallery() {
         if !UIImagePickerController.isSourceTypeAvailable(.camera){
             
             let alertController = UIAlertController.init(title: nil, message: "Device has no camera", preferredStyle: .alert)
@@ -57,52 +65,52 @@ class MainViewController: UIViewController {
         }
     }
     
-    func cashRecord(title: String) {
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Record", in: managedContext)!
-        let record = NSManagedObject(entity: entity, insertInto: managedContext)
-        record.setValue(title, forKeyPath: "title")
-        
-        do {
-            try managedContext.save()
-            records.append(record)
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-    }
+//    func cashRecord(title: String) {
+//
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//        let managedContext = appDelegate.persistentContainer.viewContext
+//        let entity = NSEntityDescription.entity(forEntityName: "Record", in: managedContext)!
+//        let record = NSManagedObject(entity: entity, insertInto: managedContext)
+//        record.setValue(title, forKeyPath: "title")
+//
+//        do {
+//            try managedContext.save()
+//            records.append(record)
+//        } catch let error as NSError {
+//            print("Could not save. \(error), \(error.userInfo)")
+//        }
+//    }
+//
+//    func fetchRecord() {
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//        let managedContext = appDelegate.persistentContainer.viewContext
+//        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Record")
+//
+//        do {
+//            records = try managedContext.fetch(fetchRequest)
+//            print(records)
+//        } catch let error as NSError {
+//            print("Could not fetch. \(error), \(error.userInfo)")
+//        }
+//    }
     
-    func fetchRecord() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Record")
-        
-        do {
-            records = try managedContext.fetch(fetchRequest)
-            print(records)
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
-    }
-    
-    func saveImageData(_ data: Data, title: String) {
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Record", in: managedContext)!
-        let record = NSManagedObject(entity: entity, insertInto: managedContext)
-        record.setValue(data, forKeyPath: "imageData")
-        record.setValue(title, forKeyPath: "title")
-        
-        
-        do {
-            try managedContext.save()
-            records.append(record)
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-    }
+//    func saveImageData(_ data: Data, title: String) {
+//
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//        let managedContext = appDelegate.persistentContainer.viewContext
+//        let entity = NSEntityDescription.entity(forEntityName: "Record", in: managedContext)!
+//        let record = NSManagedObject(entity: entity, insertInto: managedContext)
+//        record.setValue(data, forKeyPath: "imageData")
+//        record.setValue(title, forKeyPath: "title")
+//
+//
+//        do {
+//            try managedContext.save()
+//            records.append(record)
+//        } catch let error as NSError {
+//            print("Could not save. \(error), \(error.userInfo)")
+//        }
+//    }
     
 //    func fetchImageData() {
 //        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -151,12 +159,19 @@ extension MainViewController: UIImagePickerControllerDelegate, UINavigationContr
                 })
 //                outputLabel.text = prediction
                 if let imageData = getImageData(image: image) {
-                    saveImageData(imageData, title: prediction)
+                    let record = Record(data: imageData, title: prediction)
+                    CDPersistence.save(record: record)
+//                    saveImageData(imageData, title: prediction)
                 }
                 //cashRecord(title: prediction)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    self.fetchRecord()
-                }
+                
+                
+                
+                
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [unowned self] in
+//                    self.records = CDPersistence.fetchRecords()
+////                    self.fetchRecord()
+//                }
             } else {
                 outputLabel.text = "Could not recognize the image"
             }

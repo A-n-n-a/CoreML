@@ -14,7 +14,7 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var records: [NSManagedObject] = []
+    var records = [Record]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,35 +33,38 @@ class HistoryViewController: UIViewController {
     
     func fetchRecords() {
         activityIndicator.startAnimating()
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Record")
-        do {
-            self.records = try managedContext.fetch(fetchRequest)
-            activityIndicator.stopAnimating()
-            self.tableView.reloadData()
-        } catch let error as NSError {
-            activityIndicator.stopAnimating()
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
+        records = CDPersistence.fetchRecords()
+        tableView.reloadData()
+        activityIndicator.stopAnimating()
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//        let managedContext = appDelegate.persistentContainer.viewContext
+//        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Record")
+//        do {
+//            self.records = try managedContext.fetch(fetchRequest)
+//            activityIndicator.stopAnimating()
+//            self.tableView.reloadData()
+//        } catch let error as NSError {
+//            activityIndicator.stopAnimating()
+//            print("Could not fetch. \(error), \(error.userInfo)")
+//        }
     }
     
-    func resetAllRecords() {
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-        do
-        {
-            try managedContext.execute(deleteRequest)
-            try managedContext.save()
-        }
-        catch {
-            print ("There was an error")
-        }
-    }
+//    func resetAllRecords() {
+//        
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//        let managedContext = appDelegate.persistentContainer.viewContext
+//        
+//        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
+//        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+//        do
+//        {
+//            try managedContext.execute(deleteRequest)
+//            try managedContext.save()
+//        }
+//        catch {
+//            print ("There was an error")
+//        }
+//    }
 
 }
 
@@ -95,17 +98,10 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-            let managedContext = appDelegate.persistentContainer.viewContext
-            managedContext.delete(records[indexPath.section])
+            CDPersistence.deleteRecordWith(title: records[indexPath.section].title)
             records.remove(at: indexPath.section)
-            do {
-                try managedContext.save()
-            } catch {
-                print("error")
-            }
             let indexSet = IndexSet(arrayLiteral: indexPath.section)
-            self.tableView.deleteSections(indexSet, with: .left) //deleteRows(at: [indexPath], with: .fade)
+            self.tableView.deleteSections(indexSet, with: .left)
         default:
             return
             

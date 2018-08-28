@@ -16,7 +16,7 @@ class HistoryCell: UITableViewCell {
     
     fileprivate let languageID = Bundle.main.preferredLocalizations.first
     
-    var record: NSManagedObject! {
+    var record: Record! {
         didSet {
             setUpCell()
         }
@@ -24,9 +24,14 @@ class HistoryCell: UITableViewCell {
     
     func setUpCell() {
         
-        if let record = record, let data = record.value(forKey: "imageData") as? Data, let text = record.value(forKey: "title") as? String {
-            picture.image = UIImage(data: data)
-            self.title.text = text
+        if let record = record, let image = record.image {
+            self.title.text = record.title
+            
+            if let cachedImage = Cache.fetchCache(path: record.title) {
+                self.picture.image = cachedImage
+            } else {
+                self.picture.image = image
+            }
             //title.text = record.value(forKey: "title") as? String
 //            let params = ROGoogleTranslateParams(source: "en",
 //                                                 target: "ru",
