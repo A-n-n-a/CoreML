@@ -26,12 +26,12 @@
                   moduleName = "PicRecognition"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anna/Desktop/PicRecognition/Pods/ROGoogleTranslate/Source/ROGoogleTranslate.swift"
-                  timestampString = "556010349.1146719"
+                  timestampString = "557176246.173113"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "67"
                   endingLineNumber = "67"
-                  offsetFromSymbolStart = "3260">
+                  offsetFromSymbolStart = "2428">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -41,12 +41,12 @@
                   moduleName = "ROGoogleTranslate"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anna/Desktop/PicRecognition/Pods/ROGoogleTranslate/Source/ROGoogleTranslate.swift"
-                  timestampString = "556010349.390475"
+                  timestampString = "557176246.277356"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "67"
                   endingLineNumber = "67"
-                  offsetFromSymbolStart = "3260">
+                  offsetFromSymbolStart = "2428">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -74,12 +74,12 @@
                   moduleName = "PicRecognition"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anna/Desktop/PicRecognition/Pods/ROGoogleTranslate/Source/ROGoogleTranslate.swift"
-                  timestampString = "556010349.1807131"
+                  timestampString = "557176246.179026"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "60"
                   endingLineNumber = "60"
-                  offsetFromSymbolStart = "3868">
+                  offsetFromSymbolStart = "2872">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -89,12 +89,12 @@
                   moduleName = "ROGoogleTranslate"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anna/Desktop/PicRecognition/Pods/ROGoogleTranslate/Source/ROGoogleTranslate.swift"
-                  timestampString = "556010349.397114"
+                  timestampString = "557176246.283218"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "60"
                   endingLineNumber = "60"
-                  offsetFromSymbolStart = "3868">
+                  offsetFromSymbolStart = "2872">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -106,13 +106,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PicRecognition/MainViewController.swift"
-            timestampString = "556010349.095153"
+            timestampString = "556981051.5868959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
-            landmarkType = "7">
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -122,13 +122,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PicRecognition/MainViewController.swift"
-            timestampString = "556010349.095824"
+            timestampString = "556981051.587657"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
-            landmarkType = "7">
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
